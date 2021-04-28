@@ -66,43 +66,38 @@ public class LibraryApplication {
                         yn = false;
                 }
 
-//					ArrayList<User> users = UserRepo.findAll();
-//					for (User s : users) {
-//						System.out.println(s.toString());
-//					}
+            } else if (scanner.nextInt() == 3){
+                System.out.println("Username:");
+                Scanner scanner1 = new Scanner(System.in);
+                username = scanner1.nextLine();
+                System.out.println("Password:");
+                Scanner scanner2 = new Scanner(System.in);
+                password = scanner2.nextLine();
+                //* represents all columns
+                PreparedStatement sql2 = cnn.prepareStatement("select * from users where username =" + "'" + username + "'" + "and password=" + "'" + password + "'");
 
-//            } else if (input.nextInt() == 3){
-//                System.out.println("Username:");
-//                Scanner scanner = new Scanner(System.in);
-//                username = scanner.nextLine();
-//                System.out.println("Password:");
-//                Scanner scanner2 = new Scanner(System.in);
-//                password = scanner2.nextLine();
-//                //* represents all columns
-//                PreparedStatement sql2 = cnn.prepareStatement("select * from users where username =" + "'" + username + "'" + "and password=" + "'" + password + "'");
-//
-//                ResultSet resultSet = sql2.executeQuery();
-//                if(resultSet.next() == true){
-//                    System.out.println("You have as normal user successfully");
-//                }else {
-//                    System.out.println("Your username or password is not correct!!!");
-//                }
-//            }else if (input.nextInt() == 2){
-//                System.out.println("Username:");
-//                Scanner scanner = new Scanner(System.in);
-//                username = scanner.nextLine();
-//                System.out.println("Password:");
-//                Scanner scanner2 = new Scanner(System.in);
-//                password = scanner2.nextLine();
-//                //* represents all columns
-//                PreparedStatement sql2 = cnn.prepareStatement("select * from users where username =" + "'" + username + "'" + "and password=" + "'" + password + "'");
-//
-//                ResultSet resultSet = sql2.executeQuery();
-//                if(resultSet.next() == true){
-//                    System.out.println("You have as admin user successfully");
-//                }else {
-//                    System.out.println("Your username or password is not correct!!!");
-//                }
+                ResultSet resultSet = sql2.executeQuery();
+                if(resultSet.next() == true){
+                    System.out.println("You have as normal user successfully");
+                }else {
+                    System.out.println("Your username or password is not correct!!!");
+                }
+            }else if (scanner.nextInt() == 2){
+                System.out.println("Username:");
+                Scanner scanner1 = new Scanner(System.in);
+                username = scanner1.nextLine();
+                System.out.println("Password:");
+                Scanner scanner2 = new Scanner(System.in);
+                password = scanner2.nextLine();
+                //* represents all columns
+                PreparedStatement sql2 = cnn.prepareStatement("select * from users where username =" + "'" + username + "'" + "and password=" + "'" + password + "'");
+
+                ResultSet resultSet = sql2.executeQuery();
+                if(resultSet.next() == true){
+                    System.out.println("You have as admin user successfully");
+                }else {
+                    System.out.println("Your username or password is not correct!!!");
+                }
             }
         }
     }
